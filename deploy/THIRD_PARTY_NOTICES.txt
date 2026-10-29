@@ -1,0 +1,12 @@
+MiT inference adapter in models.py follows OpenMMLab MMSegmentation
+MixVisionTransformer and SegformerHead, Copyright 2020 The MMSegmentation
+Authors, Apache-2.0. Adapted to pure torch.nn inference; parameter names and
+computation retained; training-only facilities removed. Full upstream license
+is LICENSE-MMSegmentation-Apache-2.0.txt.
+
+ResNet34 U-Net and ConvNeXt U-Net use segmentation-models-pytorch0.5.0
+(MIT; LICENSE-SMP-MIT.txt), torchvision and timm. Dependencies retain their
+own licenses; installed distribution metadata is included in validation records.
+Project contributions and released final model weights are licensed under
+Apache-2.0; see the root LICENSE, NOTICE and WEIGHTS_LICENSE.md.
+The competition dataset is not included or licensed by this project.

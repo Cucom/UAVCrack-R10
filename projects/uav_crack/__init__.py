@@ -1,0 +1,1 @@
+"""UAV-Crack task adapters."""

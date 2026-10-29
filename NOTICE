@@ -1,0 +1,12 @@
+UAVCrack-R10
+Copyright 2026 UAVCrack-R10 contributors
+
+The project contributions and released six-model weights are released under the Apache License, Version 2.0. Existing third-party components
+retain their own copyright notices and licenses.
+
+The pure-Torch MiT adapter derives from MMSegmentation (Apache-2.0),
+Copyright 2020 The MMSegmentation Authors. It retains parameter naming and
+inference operations while removing training-only facilities.
+The binary Lightning example follows segmentation-models-pytorch 0.5.0 (MIT).
+ConvNeXt and ResNet encoders use timm/torchvision; their notices are retained
+in deploy/. The competition dataset is not included or licensed by this project.

@@ -1,0 +1,11 @@
+--- a/setup.py
++++ b/setup.py
+@@
+-                extra_compile_args['cxx'] = ['-std=c++17']
++                extra_compile_args['cxx'] = ['-std=c++20']
+@@
+-                extra_compile_args['cxx'] = ['/std:c++17']
++                extra_compile_args['cxx'] = ['/std:c++20']
+@@
+-                extra_compile_args['nvcc'] += ['-std=c++17']
++                extra_compile_args['nvcc'] += ['-std=c++20']

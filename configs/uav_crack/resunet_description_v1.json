@@ -1,0 +1,27 @@
+{
+  "experiment": "R4-PDF-description-reproduction-v1",
+  "source_method": "123xjl-ResUNetFull; public description only, no author code or checkpoint",
+  "known_from_pdf": {
+    "model": "ResNet34 U-Net", "encoder_initialization": "ImageNet",
+    "optimizer": "AdamW", "scheduler": "cosine", "loss": "BCE+Dice",
+    "full_data_count": 1200, "epochs": 42, "seeds": [42, 43],
+    "ensemble": "equal probability mean", "tta": ["identity", "horizontal", "vertical", "horizontal+vertical"],
+    "threshold": 0.4
+  },
+  "implementation_assumptions_not_reported_by_author": {
+    "framework": "segmentation-models-pytorch==0.5.0; official binary example LightningModule adaptation",
+    "input": "RGB original 672x378; normalize ImageNet, bottom zero-pad to 672x384; crop logits to valid 378 before loss, metrics, probability flips",
+    "batch_size": 8, "lr": 0.0003, "weight_decay": 0.0001,
+    "eta_min": 0.000001, "scheduler_interval": "epoch",
+    "loss_weights": {"BCE": 1.0, "Dice": 1.0},
+    "dice": "SMP binary batch-aggregated foreground Dice, smooth=0, eps=1e-7; absent foreground Dice excluded by upstream",
+    "augmentation": "train only: independent H/V flips, each p=0.5",
+    "precision": "16-mixed", "num_workers": 2
+  },
+  "split_sha256": "4a8edf368bbc4768f00ff0c1d39e64e918a671a9311523ea7f50f1b511eb8ef2",
+  "development_protocol": "984 train / 216 frozen source-group val. Run seed42 first; last epoch42 is primary fixed-budget comparison, best valid_dataset_iou retained as secondary diagnostic. threshold0.4 fixed from PDF, no threshold sweep.",
+  "full_data_protocol": "Only after preflight and holdout checks: train all1200, 42 epochs, seed42 and43, deliver last checkpoints; no selection with former validation set. Equal probability ensemble, four flips, fixed0.4.",
+  "budget_gpu_hours_max": 3.0,
+  "pretrained": "checkpoints/resnet34-b627a593.pth",
+  "pretrained_sha256": "b627a593bcbe140c234610266fe4f8ae95ea42fc881d091c9b6052e6b1d0590f"
+}

@@ -1,0 +1,2 @@
+# Default is pure ONNX CPU inference. CUDA and Torch locks are separate.
+-r requirements-onnx-cpu-lock.txt
